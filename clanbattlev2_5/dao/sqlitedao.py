@@ -72,7 +72,7 @@ class ClanDao(SqliteDao):
                 'hp4': r[12], 'hp5': r[13]} if r else None
 
 
-    def add(self, clan, hp):
+    def add(self, clan):
         with self._connect() as conn:
             try:
                 conn.execute('''
@@ -81,7 +81,8 @@ class ClanDao(SqliteDao):
                     '''.format(self._table, self._columns),
                     (clan['gid'], clan['cid'], clan['name'], clan['server'],
                     # Initialize all round as 1 and hp defined in config file
-                    1, 1, 1, 1, 1, hp[0], hp[1], hp[2], hp[3], hp[4]))
+                    1, 1, 1, 1, 1, clan['hp'][0], clan['hp'][1],
+                    clan['hp'][2], clan['hp'][3], clan['hp'][4]))
             except (sqlite3.DatabaseError) as e:
                 logger.error(f'[ClanDao.add] {e}')
                 raise DatabaseError('添加公会失败')
