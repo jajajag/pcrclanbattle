@@ -194,7 +194,7 @@ def _gen_progress_text(bm):
     for i in range(1, 6):
         round_, hp = status[i]
         max_hp, _ = bm.get_boss_info(round_, i, clan['server'])
-        text += '\n┣' if i < 5 else '┗'
+        text += '\n┣' if i < 5 else '\n┗'
         text += 'r' + str(round_)
         # Output round related emoji
         if round_ == min_round:
@@ -203,7 +203,7 @@ def _gen_progress_text(bm):
             text += '🎁'
         else:
             text += '🔵'
-        text += f' {hp: ,d}/{max_hp / 10 ** 6}M'
+        text += f' {hp: ,d}/{max_hp / 10 ** 6: d}M'
     return text
 
 
