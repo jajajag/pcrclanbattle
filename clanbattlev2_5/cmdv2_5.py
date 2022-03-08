@@ -203,7 +203,7 @@ def _gen_progress_text(bm):
             text += '🎁'
         else:
             text += '🔵'
-        text += f' {hp: ,d}/{max_hp / 10 ** 6: d}M'
+        text += f' {hp: ,d}/{int(max_hp / 10 ** 6)}M'
     return text
 
 
