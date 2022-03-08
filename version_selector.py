@@ -22,14 +22,15 @@ async def version_select(bot, ev: CQEvent):
     svs = Service.get_loaded_services()
     cbsvs = {
         'v2': svs.get('clanbattle'),
-        'v2.5': svs.get('clanbattlev2.5'),
+        'v2.5': svs.get('clanbattlev2_5'),
     }
     if arg not in cbsvs:
         await bot.finish(ev, help_str)
     if not priv.check_priv(ev, priv.ADMIN):
         await bot.finish(ev, '只有*群管理*和*群主*才能切换会战管理版本')
     if not cbsvs[arg]:
-        await bot.finish(ev, f'本bot未实装clanbattle{arg}，请加入Hoshinoのお茶会(787493356)体验！')
+        await bot.finish(ev, f'本bot未实装clanbattle{arg}，'
+                '请加入Hoshinoのお茶会(787493356)体验！')
     for k, v in cbsvs.items():
         v.set_enable(gid) if k == arg else v.set_disable(gid)
     await bot.send(ev, f'已启用clanbattle{arg}\n{cbsvs[arg].help}')
