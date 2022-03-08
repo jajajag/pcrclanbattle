@@ -9,7 +9,7 @@ from hoshino.typing import *
 from .argparse import ArgParser
 from .exception import *
 
-sv = Service('clanbattlev2.5',
+sv = Service('clanbattlev2_5',
         help_='Hoshino开源版 命令以感叹号开头 发送【!帮助】查看说明',
         bundle='pcr会战')
 SORRY = 'ごめんなさい！嘤嘤嘤(〒︿〒)'
