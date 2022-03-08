@@ -41,7 +41,8 @@ class ClanDao(SqliteDao):
     def __init__(self):
         super().__init__(
             table='clan',
-            columns='gid, cid, name, server',
+            columns='gid, cid, name, server, round1, round2, '
+                'round3, round4, round5, hp1, hp2, hp3, hp4, hp5',
             fields='''
             gid INT NOT NULL,
             cid INT NOT NULL,
